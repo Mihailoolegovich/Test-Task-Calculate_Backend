@@ -15,9 +15,9 @@
 /**
  * @swagger
  * /api/calculator:
- *  get:
+ *   get:
  *     security:
- *      - bearerAuth: []
+ *       -bearerAuth: []
  *     summary: Get Calculate History
  *     tags: [Calculate]
  *     responses:
@@ -36,17 +36,17 @@
  *     summary: Changing the data of the Calculate
  *     tags: [Calculate]
  *     parameters:
- *         value: Array
+ *       -value: Array
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             required:
- *              - value
+ *               -value
  *             properties:
- *              value:
- *                type: Array
+ *               value:
+ *                 type: Array
  *     responses:
  *       204:
  *         description: Product is deleted
