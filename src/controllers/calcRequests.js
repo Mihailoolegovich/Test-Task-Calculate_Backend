@@ -1,8 +1,20 @@
 const { Calc } = require("../models/calculate");
 
-const getAll = async (req, res) => {
-  const calc = await Calc.find({});
+const getById = async (req, res) => {
+  const { _id } = req.params;
+  const calc = await Calc.findById(_id);
+  if (!calc) {
+    const error = new Error("Not found");
+    error.status = 404;
+    throw error;
+  }
   res.json({ calc });
+};
+
+const newUser = async (req, res) => {
+  // const { _id } = req.params;
+  const calc = await Calc.create({ ...req.body });
+  res.status(201).json({ calc });
 };
 
 const update = async (req, res) => {
@@ -23,6 +35,7 @@ const update = async (req, res) => {
 };
 
 module.exports = {
-  getAll,
+  getById,
+  newUser,
   update,
 };
