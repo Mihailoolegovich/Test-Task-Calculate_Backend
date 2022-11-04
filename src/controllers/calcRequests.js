@@ -12,8 +12,8 @@ const getById = async (req, res) => {
 };
 
 const newUser = async (req, res) => {
-  // const { _id } = req.params;
-  const calc = await Calc.create({ ...req.body });
+  const calc = await Calc.create({});
+
   res.status(201).json({ calc });
 };
 
